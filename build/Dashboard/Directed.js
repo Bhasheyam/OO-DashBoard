@@ -1,0 +1,10 @@
+/**
+ * 
+ */
+class Directed{
+	chart(data)
+	{
+		
+		
+	}
+}
