@@ -7,10 +7,8 @@ class ChartFactory{
 		if(value=="pie"){
 			
 			return new Pie();
-			
 		}
 		else if(value=="bar"){
-			console.log("came");
 			return new Bar();
 		}
 		else if(value=="Stacked"){

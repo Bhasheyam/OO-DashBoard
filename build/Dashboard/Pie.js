@@ -1,9 +1,0 @@
-/**
- * 
- */
-class Pie{
-	chart(data)
-	{
-		
-	}
-}

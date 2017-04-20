@@ -1,9 +1,0 @@
-/**
- * 
- */
-class Stacked{
-	chart(data)
-	{
-		
-	}
-}

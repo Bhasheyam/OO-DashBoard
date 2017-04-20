@@ -1,9 +1,0 @@
-/**
- * 
- */
-class Network{
-	chart(data)
-	{
-		
-	}
-}

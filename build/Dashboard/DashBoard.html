@@ -3,28 +3,23 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Dashboard</title>
-<link rel="stylesheet" href="Dashboard.css">
-<script src="d3.js"></script>
-<script src="FacadeLoad.js"></script>
-<script src="Load1.js"></script>
-<script src="Load2.js"></script>
-<script src="Load3.js"></script>
-<script src="Load4.js"></script>
-<script src="Load5.js"></script>
-<script src="ChartFactory.js"></script>
-<script src="pie.js"></script>
-<script src="Stacked.js"></script>
-<script src="State.js"></script>
-<script src="Bar.js"></script>
-<script src="Network.js"></script>
-<script src="Directed.js"></script>
-<script src="Dashboard.js"></script>
-<script src="SupportLib.js"></script>
-<script src="try.js"></script>
+<link rel="stylesheet" href="./ViewLogic/Dashboard.css">
+<script src="./Library/Chart.js"></script>
+<script src="./Library/Dataframe.js"></script>
+<script src="./Controller/DataframSingleton/LoadDataset.js"></script>
+<script src="./Controller/DataframSingleton/SingletonData.js"></script>
+<script src="./Controller/ChartFactory/ChartFactory.js"></script>
+<script src="./Controller/ChartFactory/ChartMaster.js"></script>
+<script src="./Controller/ChartFactory/pie.js"></script>
+<script src="./Controller/ChartFactory/Bar.js"></script>
+<script src="./Controller/ChartFactory/Donut.js"></script>
+<script src="./Controller/Main/Dashboard.js"></script>
+<script src="./Controller/Main/try.js"></script>
+
 </head>
-<body onload="onload()">
+<body onload="load()">
 <h1>DashBoard</h1>
-<button title="set1" onclick="load1()">Set1</button>
+<button title="set1" onclick="load()">Set1</button>
 <button title="set1" onclick="load2()">Set1</button>
 <button title="set1" onclick="load3()">Set1</button>
 <button title="set1" onclick="load4()">Set1</button>

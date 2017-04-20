@@ -1,9 +1,0 @@
-/**
- * 
- */
-class State{
-	chart(data)
-	{
-		
-	}
-}
