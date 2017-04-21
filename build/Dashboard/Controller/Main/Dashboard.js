@@ -1,34 +1,54 @@
 
 
+var filter;
+var chart;
 
-
-
-function load(value)
-{	
-
-var  l=new LoadDataSet("./Dataset/set1.csv");
+function basic(){
+	filter=new Filter();
+	//chart=new 
+	
 }
-function columnload(){
-	var selected=[];
-var a=document.getElementsByName("column");
 
-a.forEach(function(column){
-	if(column.checked)
-		{
-		selected.push(column.value);
-		}
-});
-
+function check(){
+	filter.Observernotify();
 }
-function loadRow()
+/*
+function check()
 {
-	var selected=[];
-	var a=document.getElementsByName("row");
+var f=new Filter();
+var f1=f.filtercolumn();
+var str =" ";
+f1.forEach (function(element)
+{
 
-	a.forEach(function(column){
-		if(column.checked)
-			{
-			selected.push(column.value);
-			}
+	str +=element;
+	
 	});
-	}
+console.log(str)
+var a=new SingletonData();
+var data=a.getDataset();
+
+var new1=data.select(str);
+var column=new1.listColumns();
+var arraydata=new1.toArray();
+createtable(arraydata,column);
+}
+function createtable(myArray,key) {
+    var result="<table><tr>";
+    for(var i=0;i<key.length;i++)
+    	{
+    	result += "<th>"+key[i]+"</th>";
+    	}
+    result +="</tr>"
+    for(var i=0; i<myArray.length; i++) {
+        result += "<tr>";
+        for(var j=0; j<myArray[i].length; j++){
+        	
+        	
+            result += "<td>"+myArray[i][j]+"</td>";
+        }
+        result += "</tr>";
+    }
+    result +="</table>"
+    	document.getElementById("data").innerHTML=result;
+}*/

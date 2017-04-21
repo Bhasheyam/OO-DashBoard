@@ -6,9 +6,7 @@ class LoadDataSet{
 		this.DataFrame=dfjs.DataFrame;
 		this.DataFrame.fromCSV(value).then(df=>{this.loading(df);});
 		
-	}
-	
-	
+	}	
 	
 	loading(Dataset)
 	{
@@ -16,7 +14,9 @@ class LoadDataSet{
 		var arraydata=Dataset.toArray();
 		this.createtable(arraydata,column);
 		this.loadcolumn(column);
-		new SingletonData(Dataset,column);
+		var data=new SingletonData();
+		data.setDataset(Dataset);
+		data.setcolumn(column);
 	}
 	createtable(myArray,key) {
 	    var result="<table><tr>";

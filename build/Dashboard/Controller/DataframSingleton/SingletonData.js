@@ -2,6 +2,8 @@
  * 
  */
 let instance=null;
+let datasetm=null;
+let column=null;
 class SingletonData
 {
 	
@@ -11,25 +13,26 @@ class SingletonData
 			{
 			SingletonData.instance=this;
 			}
-		this.dataset=dataset;
-		this.column=column;
+		
 		 return SingletonData.instance;
 	}
-	
-	
-	getInstance()
-	{
-		return new SingletonData(data,cloumn);
+	setcolumn(column){
+		console.log(column);
+		SingletonData.column=column;
+	}
+	setDataset(dataset){
+		console.log(dataset);
+		SingletonData.datasetm=dataset;	
 	}
 getCloumn()
 	{
-		return this.column;
+		return SingletonData.column;
 		
 	}
 	getDataset()
 {
 		
-return this.dataset;
+return SingletonData.datasetm;
 }
 	
 }
