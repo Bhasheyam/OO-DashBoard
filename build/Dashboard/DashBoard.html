@@ -3,7 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Dashboard</title>
-<link rel="stylesheet" href="./ViewLogic/Dashboard.css">
+<link rel="stylesheet" href="Dashboard.css">
 <script src="./Library/Chart.js"></script>
 <script src="./Library/Dataframe.js"></script>
 <script src="./Controller/DataframSingleton/LoadDataset.js"></script>
@@ -17,29 +17,30 @@
 <script src="./Controller/Main/try.js"></script>
 
 </head>
+
 <body onload="load()">
-<h1>DashBoard</h1>
-<button title="set1" onclick="load()">Set1</button>
-<button title="set1" onclick="load2()">Set1</button>
-<button title="set1" onclick="load3()">Set1</button>
-<button title="set1" onclick="load4()">Set1</button>
-<button title="set1" onclick="load5()">Set1</button>
-<div id="column"></div>
-<button title="slice" onclick="columnload">apply</button>
-<div id="data"></div>
-<div id="column"></div>
-<div id="row">
-<button title="Ascending" onclick="myFunction()">Ascending</button>
-<button title="Descending">Descending</button>
-<button title="Max">Max</button>
-<button title="Min">Min</button>
+<div id="head"><h1>DashBoard</h1></div>
+<button class="Databutton" title="set1" onclick="load()" value="./Dataset/set1.csv">Set1</button>
+<button class="Databutton" title="set1" onclick="load2()">Set1</button>
+<button class="Databutton" title="set1" onclick="load3()">Set1</button>
+<button class="Databutton" title="set1" onclick="load4()">Set1</button>
+<button class="Databutton" title="set1" onclick="load5()">Set1</button>
+<div id="columndata"></div>
+<div id="Columnbutton">
+<button class="Columnbutton" title="slice" onclick="columnload()">apply</button>
 </div>
-<button title="pie" onclick="chart1(this.value)"value="pie">pie</button>
-<button title="bar" onclick="chart1(this.value)"value="bar">bar</button>
-<button title="Stacked" onclick="chart1(this.value)"value="Stacked">Stacked</button>
-<button title="State" onclick="chart1(this.value)"value="State">State</button>
-<button title="Network" onclick="chart1(this.value)"value="Network">Network</button>
-<button title="Directed Graph" onclick="chart1(this.value)"value="Directed">Directed Graph</button>
-<canvas id="chart"></canvas>
+<div id="data"></div>
+<div id="row"></div>
+<div id="Rowbutton"> 
+<button class="Rowbutton" title="Apply" onclick="loadRow()">Apply</button>
+</div>
+<div id="chartbutton">
+<button class="chartbutton" title="pie" onclick="chart1(this.value)"value="pie">pie</button>
+<button class="chartbutton" title="bar" onclick="chart1(this.value)"value="bar">bar</button>
+<button class="chartbutton" title="Stacked" onclick="chart1(this.value)"value="Stacked">Stacked</button>
+<button class="chartbutton" title="State" onclick="chart1(this.value)"value="State">State</button>
+<button class="chartbutton" title="Network" onclick="chart1(this.value)"value="Network">Network</button>
+<button class="chartbutton" title="Directed Graph" onclick="chart1(this.value)"value="Directed">Directed Graph</button>
+</div>
 </body>
 </html>

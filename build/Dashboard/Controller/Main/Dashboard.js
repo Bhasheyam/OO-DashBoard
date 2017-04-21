@@ -1,21 +1,34 @@
-/**
- * 
- */
 
 
 
-function chart1(value)
-{
-	console.log("came");
-	var createchart=chart.create(value);
-	createchart.chart(dataset);
-	}
 
 
-function load()
-{
-	
-	
-var a=new SingletonData();
-a.show();
+function load(value)
+{	
+
+var  l=new LoadDataSet("./Dataset/set1.csv");
 }
+function columnload(){
+	var selected=[];
+var a=document.getElementsByName("column");
+
+a.forEach(function(column){
+	if(column.checked)
+		{
+		selected.push(column.value);
+		}
+});
+
+}
+function loadRow()
+{
+	var selected=[];
+	var a=document.getElementsByName("row");
+
+	a.forEach(function(column){
+		if(column.checked)
+			{
+			selected.push(column.value);
+			}
+	});
+	}
