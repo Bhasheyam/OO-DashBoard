@@ -1,24 +1,29 @@
 /**
  * 
  */
-class Radar
+class Radar extends ChartMaster
 {
-	constructor()
+	constructor(ctx,name)
 	{
+		super(ctx,name);
+		this.Background=[];
+		this.BorderColor=[];
 		
 	}
 
 	chart(data,Labels)
 	{
+		var ctx=document.getElementById("body");
+		console.log(ctx);
+		//background(data);
 		var myChart = new Chart(ctx, {
 		    type: 'radar',
 		    data: {
 		        labels: Labels,
 		        datasets: [{
-		            label: "Bar Chart",
+		            label: this.name,
 		            data: data,
-		            backgroundColor: Background,
-		            borderColor: BorderColor,
+		            backgroundColor: ['blue','blue','green'],
 		            borderWidth: 1
 		        }]
 		    },
@@ -32,6 +37,9 @@ class Radar
 		        }
 		    }
 		});
-
+		
 }
+	
+	
+	
 }

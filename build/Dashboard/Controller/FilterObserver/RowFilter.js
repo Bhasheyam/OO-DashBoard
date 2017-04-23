@@ -20,7 +20,8 @@ class RowFilter extends FilterObserver {
 				arr.forEach(function(row){
 					row.forEach(function(data){
 						var check=RowFilter.rowselected.indexOf(data);
-						if(check ==notthere);
+						console.log(check==notthere);
+						if(check ==notthere)
 						RowFilter.rowselected.push(data);
 					});	
 			});

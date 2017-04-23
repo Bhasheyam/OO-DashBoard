@@ -12,6 +12,16 @@ function basic(){
 function check(){
 	filter.Observernotify();
 }
+function chart(value)
+{
+	var ctx=document.getElementById("body");
+	var data=[5,6,7];
+	var label=["a","b","c"]
+	var check=new Radar(ctx,value);
+	check.chart(data,label);
+	
+	
+	}
 /*
 function check()
 {

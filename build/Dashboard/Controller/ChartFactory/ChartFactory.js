@@ -3,7 +3,7 @@
  */
 class ChartFactory{
 	
-	create(value){
+	create(ctx,value){
 		if(value=="pie"){
 			
 			return new Pie();
@@ -14,15 +14,17 @@ class ChartFactory{
 		else if(value=="Stacked"){
 			return new Stacked();
 }
-		else if(value=="State"){
-			return new State();
+		else if(value=="Doughnut"){
+			return new Doughnut();
 }
-		else if(value=="Network"){
-			return new Network();
+		else if(value=="Bubble"){
+			return new Bubble();
 }
-		else if(value=="Directed"){
-			return new Directed();
+		else if(value=="Line"){
+			return new Line();
 }
-		
+		else if(value=="Radar"){
+			return new Radar();
+}
 	}
 }

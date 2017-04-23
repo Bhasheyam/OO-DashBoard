@@ -29,7 +29,7 @@
 <script src="./Controller/Main/Dashboard.js"></script>
 <script src="./Controller/Main/try.js"></script>
 </head>
-<body onload="basic()">
+<body  onload="basic()">
 <div id="head"><h1>DashBoard</h1></div>
 <button class="Databutton" title="set1" onclick="new LoadDataSet(this.value)" value="./Dataset/set1.csv" >Set1</button>
 <button class="Databutton" title="set1" onclick="new LoadDataSet(this.value)"  value="./Dataset/set1.csv">Set1</button>
@@ -46,12 +46,13 @@
 <button class="Rowbutton" title="Apply" onclick="loadRow()">Apply</button>
 </div>
 <div id="chartbutton">
-<button class="chartbutton" title="pie" onclick="chart1(this.value)"value="pie">pie</button>
+<button class="chartbutton" title="pie" onclick="chart(this.value)" value="Radar">pie</button>
 <button class="chartbutton" title="bar" onclick="chart1(this.value)"value="bar">bar</button>
 <button class="chartbutton" title="Stacked" onclick="chart1(this.value)"value="Stacked">Stacked</button>
 <button class="chartbutton" title="State" onclick="chart1(this.value)"value="State">State</button>
 <button class="chartbutton" title="Network" onclick="chart1(this.value)"value="Network">Network</button>
 <button class="chartbutton" title="Directed Graph" onclick="chart1(this.value)"value="Directed">Directed Graph</button>
 </div>
+<canvas id="body"></canvas>
 </body>
 </html>
