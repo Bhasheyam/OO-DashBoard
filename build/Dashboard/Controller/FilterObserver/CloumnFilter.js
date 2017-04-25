@@ -10,10 +10,11 @@ class ColumnFilter extends FilterObserver{
 	}
 	
 	update(){
-		var selected=this.subject.getState();
-		var data=this.subject.getDataset()
+		
+		var data=this.subject.getState()
 		var arr=data.toArray();
-		this.createtable(arr,selected);
+		var key=data.listColumns();
+		this.createtable(arr,key);
 		
 	}
 	createtable(myArray,key) {

@@ -10,18 +10,18 @@ class RowFilter extends FilterObserver {
 	}
 	
 	update(){
-		var selected=this.subject.getState();
-			var data=this.subject.getDataset();
-			var notthere=-1;
+		
+			var data=this.subject.getState();
+			console.log(data);
+			var selected=data.listColumns();
 		RowFilter.rowselected=[];
 			selected.forEach(function(dataselected){
 				var rowu=data.unique(dataselected);
 				var arr=rowu.toArray();
 				arr.forEach(function(row){
 					row.forEach(function(data){
-						var check=RowFilter.rowselected.indexOf(data);
-						console.log(check==notthere);
-						if(check ==notthere)
+						
+						if(RowFilter.rowselected.indexOf(data) =="-1" && data !="" )
 						RowFilter.rowselected.push(data);
 					});	
 			});
@@ -34,6 +34,7 @@ class RowFilter extends FilterObserver {
 	loadcolumn(key)
 	{
 		document.getElementById("Rowbutton").style.display="block";
+		document.getElementById("stats").style.display="block";
 		var cloumnfind=document.getElementById("row");
 
           while(cloumnfind.firstChild) 

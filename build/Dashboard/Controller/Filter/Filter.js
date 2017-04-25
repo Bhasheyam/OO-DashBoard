@@ -1,19 +1,23 @@
 /**
  * 
  */
-let updateddataset=null;
+let columnupdated=null;
+let ChartData=null;
+
+
 class Filter{
 	constructor(){
-		this.observer=new FilterSubject();// Observer Patterns
 		
+		this.observer=new FilterSubject();// Observer Patterns
 		new RowFilter(this.observer);// Attaching the Observers.
 		new ColumnFilter(this.observer);// Attaching the Observers.
 		//this.strategy=new FilterContent();//Startegy
+		this.facade=new Query();
 	}
-    filtercolumn()
+    filtervaluepicker(value)
     {
     	var selected=[];
-    	var select=document.getElementsByName("column");
+    	var select=document.getElementsByName(value);
     	
     	select.forEach(function(check){
     		if(check.checked)
@@ -22,33 +26,48 @@ class Filter{
     			selected.push(check.value);
     			}
     	});
-    	
     	return selected;
     }
-    filterrow(){
-    	var selected;
-    	var checked=document.getElementsByName("row");
-    	checked.forEach(function(check){
+    filtervaluepicker1(value)
+    {
+    	var selected=[];
+    	var select=document.getElementsByName(value);
+    	
+    	select.forEach(function(check){
     		if(check.checked)
+    		
     			{
-    			selected.push(check.value);
+    			//do nothing
+    			}
+    		else
+    			{
+    			selected.push(check.value)
     			}
     	});
     	return selected;
-    	
     }
+   
 	Observernotify()
 	{
 		var a=new SingletonData();
 		var dataset=a.getDataset();
-		var state=this.filtercolumn();
-		var data=dataset.restructure(state);
-		Filter.updateddatset=data;//Maintaining the updated Data for row functions
-		this.observer.setState(state, data);// all observers are notified about the update
+		var data=this.filtervaluepicker("column");
+		var state=dataset.restructure(data);
+		Filter.columnupdated=state;//Maintaining the updated Data for row functions
+		Filter.chartData=state;//Reference for ChartData
+		this.observer.setState(state);// all observers are notified about the update
 		console.log("working");
 	}
-	check()
-	{
-		console.log("working");
+	
+	Rowoptions(){
+		var options=this.filtervaluepicker1("Row");
+		
+		var new1=this.facade.rowoptions(Filter.columnupdated,options);
+		Filter.chartData=new1;//Reference for ChartData
+		this.observer.setState(new1);// all observers are notified about the update
+	}
+	Sqlrow(){
+		
+		var new1=this.facade.sqlQuery(Filter.columnupdated,options);
 	}
 }

@@ -13,6 +13,10 @@
 <script src="./Controller/FilterObserver/FilterObserver.js"></script>
 <script src="./Controller/FilterObserver/CloumnFilter.js"></script>
 <script src="./Controller/FilterObserver/RowFilter.js"></script>
+<script src="./Controller/FilterFacade/Query.js"></script>
+<script src="./Controller/FilterFacade/RowManager.js"></script>
+<script src="./Controller/FilterFacade/RowReduction.js"></script>
+<script src="./Controller/FilterFacade/SqlReduction.js"></script>
 <script src="./Controller/FilterStartegy/Row.js"></script>
 <script src="./Controller/FilterStartegy/Column.js"></script>
 <script src="./Controller/FilterStartegy/FilterContent.js"></script>
@@ -43,9 +47,20 @@
 <div id="data"></div>
 <div id="row"></div>
 <div id="Rowbutton"> 
-<button class="Rowbutton" title="Apply" onclick="loadRow()">Apply</button>
+<button class="Rowbutton" title="Apply" onclick="check1()" value="row">Apply</button>
 </div>
-<div id="chartbutton">
+<div id="sql"> 
+<select id="options"></select>
+<input id="sqlvalue" type="text">
+<button class="SQL" title="Apply" onclick="loadSQL()" value="row">Query</button>
+</div>
+<div id="stats">
+<input type="checkbox" value="min"><label>MIN</label>
+<input type="checkbox" value="max"><label>MAX</label>
+<input type="checkbox" value="min"><label>Average</label>
+<input type="checkbox" value="min"><label>Standard Deviation</label>
+</div>
+<div chartbutton">
 <button class="chartbutton" title="pie" onclick="chart(this.value)" value="Radar">pie</button>
 <button class="chartbutton" title="bar" onclick="chart1(this.value)"value="bar">bar</button>
 <button class="chartbutton" title="Stacked" onclick="chart1(this.value)"value="Stacked">Stacked</button>
@@ -53,6 +68,8 @@
 <button class="chartbutton" title="Network" onclick="chart1(this.value)"value="Network">Network</button>
 <button class="chartbutton" title="Directed Graph" onclick="chart1(this.value)"value="Directed">Directed Graph</button>
 </div>
+
+
 <canvas id="body"></canvas>
 </body>
 </html>

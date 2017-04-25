@@ -7,7 +7,7 @@ class FilterSubject{
 	{
 		this.state=null;
 		this.observers=[];
-		this.dataset=null;
+		
 		
 	}
 	getState(){
@@ -15,16 +15,12 @@ class FilterSubject{
 		return this.state;
 		
 	}
-	getDataset(){
-		
-		return this.dataset;
-	}
-	setState(state, dataset)
+	
+	setState(state)
 	{
 		this.state=state;
-		this.dataset=dataset;
 		this.Notify();
-		console.log("data called");
+		
 	}
 	CreateObservers(newObserver){
 		this.observers.push(newObserver);

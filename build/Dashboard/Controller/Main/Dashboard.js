@@ -12,16 +12,27 @@ function basic(){
 function check(){
 	filter.Observernotify();
 }
+function loadRow(value){
+	filter.plan(value);
+}
 function chart(value)
 {
 	var ctx=document.getElementById("body");
 	var data=[5,6,7];
+	var newdata=[];
+	var data2=[2,4,6];
+	newdata.push(data);
+	newdata.push(data2);
 	var label=["a","b","c"]
 	var check=new Radar(ctx,value);
-	check.chart(data,label);
+	check.chart(data,data2,label);
 	
 	
 	}
+function check1(){
+	console.log("working here");
+	filter.Rowoptions();
+}
 /*
 function check()
 {

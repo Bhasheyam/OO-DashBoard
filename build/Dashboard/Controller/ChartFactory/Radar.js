@@ -11,7 +11,7 @@ class Radar extends ChartMaster
 		
 	}
 
-	chart(data,Labels)
+	chart(data,data2,Labels)
 	{
 		var ctx=document.getElementById("body");
 		console.log(ctx);
@@ -20,12 +20,19 @@ class Radar extends ChartMaster
 		    type: 'radar',
 		    data: {
 		        labels: Labels,
-		        datasets: [{
-		            label: this.name,
-		            data: data,
-		            backgroundColor: ['blue','blue','green'],
-		            borderWidth: 1
-		        }]
+		        	 datasets: [{
+		        		 label:"one",
+				            data: data,
+				            backgroundColor: ['red'],
+				            borderWidth: 1
+				        },{
+				        	label:"two",
+				            data: data2,
+				            backgroundColor: ['blue'],
+				            borderWidth: 1
+				        }]
+		        
+		       
 		    },
 		    options: {
 		        scales: {
