@@ -17,21 +17,23 @@
 <script src="./Controller/FilterFacade/RowManager.js"></script>
 <script src="./Controller/FilterFacade/RowReduction.js"></script>
 <script src="./Controller/FilterFacade/SqlReduction.js"></script>
-<script src="./Controller/FilterStartegy/Row.js"></script>
-<script src="./Controller/FilterStartegy/Column.js"></script>
-<script src="./Controller/FilterStartegy/FilterContent.js"></script>
+<script src="./Controller/FilterStartegy/Max.js"></script>
+<script src="./Controller/FilterStartegy/Min.js"></script>
+<script src="./Controller/FilterStartegy/Average.js"></script>
+<script src="./Controller/FilterStartegy/Standard.js"></script>
+<script src="./Controller/FilterStartegy/FilterContext.js"></script>
 <script src="./Controller/FilterStartegy/Startegy.js"></script>
 <script src="./Controller/ChartFactory/ChartFactory.js"></script>
 <script src="./Controller/ChartFactory/ChartMaster.js"></script>
 <script src="./Controller/ChartFactory/ChartSetting.js"></script>
 <script src="./Controller/ChartFactory/Radar.js"></script>
+<script src="./Controller/ChartFactory/Line.js"></script>
 <script src="./Controller/ChartFactory/Stacked.js"></script>
 <script src="./Controller/ChartFactory/pie.js"></script>
 <script src="./Controller/ChartFactory/Bar.js"></script>
-<script src="./Controller/ChartFactory/Bubble.js"></script>
-<script src="./Controller/ChartFactory/Doughnut.js"></script>
+<script src="./Controller/ChartFactory/Pivot.js"></script>
 <script src="./Controller/Main/Dashboard.js"></script>
-<script src="./Controller/Main/try.js"></script>
+
 </head>
 <body  onload="basic()">
 <div id="head"><h1>DashBoard</h1></div>
@@ -52,13 +54,13 @@
 <div id="sql"> 
 <select id="options"></select>
 <input id="sqlvalue" type="text">
-<button class="SQL" title="Apply" onclick="loadSQL()" value="row">Query</button>
+<button class="SQL" title="Apply" onclick="check2()" value="row">Query</button>
 </div>
 <div id="stats">
-<input type="checkbox" value="min"><label>MIN</label>
-<input type="checkbox" value="max"><label>MAX</label>
-<input type="checkbox" value="min"><label>Average</label>
-<input type="checkbox" value="min"><label>Standard Deviation</label>
+<input type="checkbox" name="stat" value="new Min()"><label>MIN</label>
+<input type="checkbox" name="stat" value="new Max()"><label>MAX</label>
+<input type="checkbox" name="stat" value="new Average()"><label>Average</label>
+<input type="checkbox" name="stat" value="new Standard()"><label>Standard Deviation</label>
 </div>
 <div chartbutton">
 <button class="chartbutton" title="pie" onclick="chart(this.value)" value="Radar">pie</button>

@@ -20,7 +20,6 @@ class RowFilter extends FilterObserver {
 				var arr=rowu.toArray();
 				arr.forEach(function(row){
 					row.forEach(function(data){
-						
 						if(RowFilter.rowselected.indexOf(data) =="-1" && data !="" )
 						RowFilter.rowselected.push(data);
 					});	

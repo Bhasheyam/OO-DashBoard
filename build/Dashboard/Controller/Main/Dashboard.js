@@ -33,6 +33,9 @@ function check1(){
 	console.log("working here");
 	filter.Rowoptions();
 }
+function check2(){
+ filter.Sqlrow();
+}
 /*
 function check()
 {

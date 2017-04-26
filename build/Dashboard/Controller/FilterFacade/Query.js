@@ -11,7 +11,7 @@ class Query{
 	sqlQuery(data,options)
 	{
 		
-		return this.options.perform(data,options);
+		return this.sql.perform(data,options);
 	}
 	rowoptions(data,options)
 	{

@@ -1,19 +1,84 @@
 /**
  * 
  */
-let columnupdated=null;
+
 let ChartData=null;
 
 
 class Filter{
+	
+	
 	constructor(){
 		
 		this.observer=new FilterSubject();// Observer Patterns
 		new RowFilter(this.observer);// Attaching the Observers.
 		new ColumnFilter(this.observer);// Attaching the Observers.
-		//this.strategy=new FilterContent();//Startegy
+		this.startegy=new FilterContext();//Startegy
 		this.facade=new Query();
 	}
+	
+	
+	//Observer Main()
+	Observernotify()
+	{
+		var a=new SingletonData();
+		var dataset=a.getDataset();
+		var data=this.filtervaluepicker("column");
+		var state=dataset.restructure(data);
+		Filter.chartData=state;//Reference for ChartData
+		var dropit=state.listColumns();
+		this.optioncolumns(dropit);
+		this.observer.setState(state);// all observers are notified about the update
+		console.log("working");
+		
+	}
+	
+	
+	//Facede  Main() Row elimination
+	Rowoptions(){
+		var options=this.filtervaluepicker1("Row");
+		
+		var new1=this.facade.rowoptions(Filter.chartData,options);
+		Filter.chartData=new1;//Reference for ChartData
+		this.observer.setState(new1);// all observers are notified about the update
+		var dropit=new1.listColumns();
+		this.optioncolumns(dropit);//used to update the Sql Drop down
+	}
+	
+	
+	
+	//Facade Main() SQL Query
+	Sqlrow(){
+		var value=[];
+		var number=document.getElementById("sqlvalue").value;
+		var col=document.getElementById("options");
+		console.log(col.selectedIndex);
+		var column=col.options[col.selectedIndex].text;
+		value.push(column);
+		value.push(number);
+		var new1=this.facade.sqlQuery(Filter.chartData,value);
+		Filter.chartData=new1;//Reference for ChartData
+		this.observer.setState(new1);// all observers are notified about the update
+		var dropit=new1.listColumns();//used to get cloumns of the updated
+		this.optioncolumns(dropit);//used to update the Sql Drop down
+	}
+	
+	
+	
+	//Startegy Stats 
+	stat(){
+		
+		var options=this.filtervaluepicker("stat");
+		var columns=Filter.ChartData.listColumns();
+		options.forEach(function(option){
+			this.startegy.Calculate(Filter.ChartData,columns)
+		})
+	
+	}
+	
+	
+	
+	//used to pick values from the column checkboxs.
     filtervaluepicker(value)
     {
     	var selected=[];
@@ -28,6 +93,11 @@ class Filter{
     	});
     	return selected;
     }
+    
+    
+    
+    
+  //used to pick values from the Row checkboxs.
     filtervaluepicker1(value)
     {
     	var selected=[];
@@ -46,28 +116,25 @@ class Filter{
     	});
     	return selected;
     }
-   
-	Observernotify()
-	{
-		var a=new SingletonData();
-		var dataset=a.getDataset();
-		var data=this.filtervaluepicker("column");
-		var state=dataset.restructure(data);
-		Filter.columnupdated=state;//Maintaining the updated Data for row functions
-		Filter.chartData=state;//Reference for ChartData
-		this.observer.setState(state);// all observers are notified about the update
-		console.log("working");
-	}
-	
-	Rowoptions(){
-		var options=this.filtervaluepicker1("Row");
-		
-		var new1=this.facade.rowoptions(Filter.columnupdated,options);
-		Filter.chartData=new1;//Reference for ChartData
-		this.observer.setState(new1);// all observers are notified about the update
-	}
-	Sqlrow(){
-		
-		var new1=this.facade.sqlQuery(Filter.columnupdated,options);
-	}
+    
+    
+    
+    
+  //used to create SQL drop Down
+    optioncolumns(data)
+    {
+ 	   var drop=document.getElementById("options")
+ 	   while(drop.firstChild) 
+          {
+	         drop.removeChild(drop.firstChild);
+          }
+ 	   data.forEach(function(col){
+ 		   var z = document.createElement("option");
+ 		    z.setAttribute("value", col);
+ 		    var t = document.createTextNode(col);
+ 		    z.appendChild(t);
+ 		    drop.appendChild(z);
+ 	   })
+ 	   
+    }
 }
