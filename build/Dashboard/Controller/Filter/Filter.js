@@ -2,7 +2,7 @@
  * 
  */
 
-let ChartData=null;
+let chartData=null;
 
 
 class Filter{
@@ -68,12 +68,54 @@ class Filter{
 	//Startegy Stats 
 	stat(){
 		
+		var temp=this.startegy;
 		var options=this.filtervaluepicker("stat");
-		var columns=Filter.ChartData.listColumns();
-		options.forEach(function(option){
-			this.startegy.Calculate(Filter.ChartData,columns)
+		var columns=Filter.chartData.listColumns();
+		var stattable="<table><th>Stats</th>";
+		columns.forEach(function(col){
+			stattable +="<th>"+col+"</th>";
 		})
-	
+		
+		options.forEach(function(value){
+			if(value=="Average"){
+				temp.context(new Average());
+				stattable +=temp.Calculate(Filter.chartData,columns);
+				
+				
+			}
+			else if(value=="Max")
+				{
+				temp.context(new Max());
+				stattable +=temp.Calculate(Filter.chartData,columns);
+				
+				}
+			else if(value=="Min")
+			{
+				temp.context(new Min());
+				stattable +=temp.Calculate(Filter.chartData,columns);
+			}
+			else if(value=="Standard")
+			{
+				temp.context(new Standard());
+				stattable +=temp.Calculate(Filter.chartData,columns);
+			}
+			else if(value=="Mean")
+			{
+				temp.context(new Mean());
+				stattable +=temp.Calculate(Filter.chartData,columns);
+			}
+			else
+				{
+				stattable= " ";
+				}
+		})
+		stattable +="</table>";
+		if(stattable =="</table>")
+			{
+			stattable= " ";
+			}
+			
+		return stattable;
 	}
 	
 	

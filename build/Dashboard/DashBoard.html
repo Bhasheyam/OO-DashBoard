@@ -17,12 +17,13 @@
 <script src="./Controller/FilterFacade/RowManager.js"></script>
 <script src="./Controller/FilterFacade/RowReduction.js"></script>
 <script src="./Controller/FilterFacade/SqlReduction.js"></script>
+<script src="./Controller/FilterStartegy/FilterContext.js"></script>
+<script src="./Controller/FilterStartegy/Startegy.js"></script>
 <script src="./Controller/FilterStartegy/Max.js"></script>
 <script src="./Controller/FilterStartegy/Min.js"></script>
 <script src="./Controller/FilterStartegy/Average.js"></script>
 <script src="./Controller/FilterStartegy/Standard.js"></script>
-<script src="./Controller/FilterStartegy/FilterContext.js"></script>
-<script src="./Controller/FilterStartegy/Startegy.js"></script>
+<script src="./Controller/FilterStartegy/Mean.js"></script>
 <script src="./Controller/ChartFactory/ChartFactory.js"></script>
 <script src="./Controller/ChartFactory/ChartMaster.js"></script>
 <script src="./Controller/ChartFactory/ChartSetting.js"></script>
@@ -57,11 +58,13 @@
 <button class="SQL" title="Apply" onclick="check2()" value="row">Query</button>
 </div>
 <div id="stats">
-<input type="checkbox" name="stat" value="new Min()"><label>MIN</label>
-<input type="checkbox" name="stat" value="new Max()"><label>MAX</label>
-<input type="checkbox" name="stat" value="new Average()"><label>Average</label>
-<input type="checkbox" name="stat" value="new Standard()"><label>Standard Deviation</label>
+<input type="checkbox" name="stat" value="Min"><label>MIN</label>
+<input type="checkbox" name="stat" value="Max"><label>MAX</label>
+<input type="checkbox" name="stat" value="Average"><label>Average</label>
+<input type="checkbox" name="stat" value="Standard"><label>Standard Deviation</label>
+<input type="checkbox" name="stat" value="Mean"><label>Mean</label>
 </div>
+<button onclick="tab()">suma use</button>
 <div chartbutton">
 <button class="chartbutton" title="pie" onclick="chart(this.value)" value="Radar">pie</button>
 <button class="chartbutton" title="bar" onclick="chart1(this.value)"value="bar">bar</button>
@@ -72,6 +75,6 @@
 </div>
 
 
-<canvas id="body"></canvas>
+<div id="bod"></div>
 </body>
 </html>

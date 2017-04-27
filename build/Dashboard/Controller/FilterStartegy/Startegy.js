@@ -1,7 +1,8 @@
 /**
  * 
  */
-class Startegy(){
+class Startegy{
+constructor(){}
 	execute(data,columns)
 	{
 		

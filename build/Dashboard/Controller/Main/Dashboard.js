@@ -2,9 +2,11 @@
 
 var filter;
 var chart;
-
+var s;
 function basic(){
 	filter=new Filter();
+	s=new Startegy();
+	console.log(12);
 	//chart=new 
 	
 }
@@ -35,6 +37,16 @@ function check1(){
 }
 function check2(){
  filter.Sqlrow();
+}
+function callit(){
+	filter.stat();
+	console.log("called button");
+}
+function tab()
+{
+var a=filter.stat();	
+console.log(a);
+document.getElementById("bod").innerHTML=a;
 }
 /*
 function check()

@@ -10,6 +10,7 @@ class FilterContext{
 		
 	}
 	Calculate(data,columns){
-		this.Startegy.execute(data,columns)
+		var res=this.Startegy.execute1(data,columns);
+		return res;
 	}
 }
