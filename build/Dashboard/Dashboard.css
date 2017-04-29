@@ -8,20 +8,93 @@
 button{
 	height:30px;
 	width:120PX;
-	border-color=blue;
-	background-color=grey;
-	border-color:blue;
+	background-color: Transparent;
+	border-color:#7fbbff;
 	border-style:medium;
+		text-transform:uppercase;
+		font-family:TimesnewRoman;
 	
 }
+.SQL{
+	color:white;
+}
+.Databutton{
+	height:60px;
+	width:150PX;
+}
+#row{
+max-height: 400px;
+	max-width:900px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
 #head{
-	
 	height:60px;
 	width:100%;
-	background-color:#798caa;
+	background-color:#0074d9;
+	text-transform:uppercase;
+	color:#001f3f;
+	
+}
+#sql{
+	color:white;
+	background:#001f3f;
+	position: absolute;
+    left: 950px;
+    top: 280px;
+    height:150px;
+	width:400px;
+	border:solid;
+	border-color:white;
 }
 #stats{
-	display:none;
+	
+	color:white;
+	background:#001f3f;
+	position: absolute;
+    left: 950px;
+    top: 430px;
+    height:120px;
+	width:400px;
+	border:solid;
+	border-color:white;
+}
+#xh{
+color:white;
+	background:#001f3f;
+	position: absolute;
+    left: 950px;
+    top: 550px;
+    height:150px;
+	width:400px;
+	border:solid;
+	border-color:white;
+}
+#yh{
+	color:white;
+	background:#001f3f;
+	position: absolute;
+    left: 950px;
+    top: 700px;
+    height:150px;
+	width:400px;
+	border:solid;
+	border-color:white;
+}
+.chartbutton1{
+	color:white;
+}
+#chartbutton{
+	color:white;
+	background:#001f3f;
+	position: absolute;
+    left: 950px;
+    top: 850px;
+    height:100px;
+	width:400px;
+	border:solid;
+	border-color:white;
 }
 #Rowbutton{
 	display:none;
@@ -29,11 +102,12 @@ button{
 #Columnbutton{
 	display:none;
 }
-/*#chartbutton{
-	display:none;
-}*/
+#columndata{
+	border-style: solid;
+	border-color:grey;
+}
 body{
-	background-color:#d6cfcd;
+	background-color:#d6cfcd ;
 }
 
 table,td
@@ -48,6 +122,7 @@ th{
 	
 	width=50%;
 }
+
 button:hover {
   background: #949fa6;
   background-image: -webkit-linear-gradient(top, #949fa6, #96e0d6);

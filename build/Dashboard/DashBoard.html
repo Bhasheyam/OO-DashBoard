@@ -13,17 +13,20 @@
 <script src="./Controller/FilterObserver/FilterObserver.js"></script>
 <script src="./Controller/FilterObserver/CloumnFilter.js"></script>
 <script src="./Controller/FilterObserver/RowFilter.js"></script>
-<script src="./Controller/FilterFacade/Query.js"></script>
+<script src="./Controller/FilterObserver/Sqloptions.js"></script>
+<script src="./Controller/FilterObserver/xaxis.js"></script>
+<script src="./Controller/FilterObserver/yaxis.js"></script>
+<script src="./Controller/FilterFacade/RowFilterContext.js"></script>
 <script src="./Controller/FilterFacade/RowManager.js"></script>
 <script src="./Controller/FilterFacade/RowReduction.js"></script>
 <script src="./Controller/FilterFacade/SqlReduction.js"></script>
-<script src="./Controller/FilterStartegy/FilterContext.js"></script>
-<script src="./Controller/FilterStartegy/Startegy.js"></script>
-<script src="./Controller/FilterStartegy/Max.js"></script>
-<script src="./Controller/FilterStartegy/Min.js"></script>
-<script src="./Controller/FilterStartegy/Average.js"></script>
-<script src="./Controller/FilterStartegy/Standard.js"></script>
-<script src="./Controller/FilterStartegy/Mean.js"></script>
+<script src="./Controller/StatStartegy/FilterContext.js"></script>
+<script src="./Controller/StatStartegy/Startegy.js"></script>
+<script src="./Controller/StatStartegy/Max.js"></script>
+<script src="./Controller/StatStartegy/Min.js"></script>
+<script src="./Controller/StatStartegy/Average.js"></script>
+<script src="./Controller/StatStartegy/Standard.js"></script>
+<script src="./Controller/StatStartegy/Mean.js"></script>
 <script src="./Controller/ChartFactory/ChartFactory.js"></script>
 <script src="./Controller/ChartFactory/ChartMaster.js"></script>
 <script src="./Controller/ChartFactory/ChartSetting.js"></script>
@@ -33,48 +36,67 @@
 <script src="./Controller/ChartFactory/pie.js"></script>
 <script src="./Controller/ChartFactory/Bar.js"></script>
 <script src="./Controller/ChartFactory/Pivot.js"></script>
+<script src="./Controller/Chart/ChartCreater.js"></script>
 <script src="./Controller/Main/Dashboard.js"></script>
-
 </head>
-<body  onload="basic()">
+<body  onload="Load()">
 <div id="head"><h1>DashBoard</h1></div>
-<button class="Databutton" title="set1" onclick="new LoadDataSet(this.value)" value="./Dataset/set1.csv" >Set1</button>
-<button class="Databutton" title="set1" onclick="new LoadDataSet(this.value)"  value="./Dataset/set1.csv">Set1</button>
-<button class="Databutton" title="set1" onclick="load3()">Set1</button>
-<button class="Databutton" title="set1" onclick="load4()">Set1</button>
-<button class="Databutton" title="set1" onclick="load5()">Set1</button>
+<button class="Databutton" title="Argentina" onclick="new LoadDataSet(this.value)" value="./Dataset/Argentina.csv" >Argentina</button>
+<button class="Databutton" title="Brazil" onclick="new LoadDataSet(this.value)"  value="./Dataset/Brazil.csv">Brazil</button>
+<button class="Databutton" title="England" onclick="new LoadDataSet(this.value)" value="./Dataset/England.csv">England</button>
+<button class="Databutton" title="Germany" onclick="new LoadDataSet(this.value)" value="./Dataset/Germany.csv"">Germany</button>
+<button class="Databutton" title="Italy" onclick="new LoadDataSet(this.value)" value="./Dataset/Italy.csv">Italy</button>
+
 <div id="columndata"></div>
+
 <div id="Columnbutton">
-<button class="Columnbutton" title="slice" onclick="check()">apply</button>
+
+<button class="Columnbutton" title="slice" onclick="ColumnHandler()" >apply</button>
 </div>
+
 <div id="data"></div>
 <div id="row"></div>
 <div id="Rowbutton"> 
-<button class="Rowbutton" title="Apply" onclick="check1()" value="row">Apply</button>
+<button class="Rowbutton" title="Apply" onclick="RowHandler()" >Apply</button>
 </div>
+
 <div id="sql"> 
+<p1>SQL Query
+</p1>
+<br><br/>
 <select id="options"></select>
+
 <input id="sqlvalue" type="text">
-<button class="SQL" title="Apply" onclick="check2()" value="row">Query</button>
+<button class="SQL" title="Apply" onclick="SqlHandler()" >Query</button>
+<br></br>
+<p1>Ex : value>40 ,value=No, Value=No && value=S.Here Value is column name.</p1>
 </div>
+
 <div id="stats">
+<p1>Statistics</p1>
+<br><br/>
 <input type="checkbox" name="stat" value="Min"><label>MIN</label>
 <input type="checkbox" name="stat" value="Max"><label>MAX</label>
 <input type="checkbox" name="stat" value="Average"><label>Average</label>
 <input type="checkbox" name="stat" value="Standard"><label>Standard Deviation</label>
 <input type="checkbox" name="stat" value="Mean"><label>Mean</label>
 </div>
-<button onclick="tab()">suma use</button>
-<div chartbutton">
-<button class="chartbutton" title="pie" onclick="chart(this.value)" value="Radar">pie</button>
-<button class="chartbutton" title="bar" onclick="chart1(this.value)"value="bar">bar</button>
-<button class="chartbutton" title="Stacked" onclick="chart1(this.value)"value="Stacked">Stacked</button>
-<button class="chartbutton" title="State" onclick="chart1(this.value)"value="State">State</button>
-<button class="chartbutton" title="Network" onclick="chart1(this.value)"value="Network">Network</button>
-<button class="chartbutton" title="Directed Graph" onclick="chart1(this.value)"value="Directed">Directed Graph</button>
+<div id="xh"><p1>X-Axis</p1>
+<div id="x"></div>
+</div>
+<div id="yh">
+<p1>Y-Axis</p1>
+<div id="y"></div>
+</div>
+<div id="chartbutton">
+<p1>Chart Types</p1>
+<br><br/>
+<button class="chartbutton1" title="pie" onclick="chartHandler(this.value)" value="pie">pie</button>
+<button class="chartbutton1" title="bar" onclick="chartHandler(this.value)" value="bar">bar</button>
+<button class="chartbutton1" title="Stacked" onclick="chartHandler(this.value)" value="Stacked">Stack</button>
+<button class="chartbutton1" title="State" onclick="chartHandler(this.value)" value="Line">Line</button>
+<button class="chartbutton1" title="Network" onclick="chartHandler(this.value)" value="Pivot">Pivot</button>
 </div>
 
-
-<div id="bod"></div>
 </body>
 </html>

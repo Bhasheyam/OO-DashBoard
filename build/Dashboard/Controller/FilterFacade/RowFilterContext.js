@@ -1,7 +1,7 @@
 /**
  * 
  */
-class Query{
+class RowFilterContext{
 	constructor(){
 		this.options=new RowReduction();
 		this.sql=new SqlReduction();

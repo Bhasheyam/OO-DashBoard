@@ -13,8 +13,11 @@ class Filter{
 		this.observer=new FilterSubject();// Observer Patterns
 		new RowFilter(this.observer);// Attaching the Observers.
 		new ColumnFilter(this.observer);// Attaching the Observers.
-		this.startegy=new FilterContext();//Startegy
-		this.facade=new Query();
+		new yaxis(this.observer);// Attaching the Observers.
+		new xaxis(this.observer);// Attaching the Observers.
+		new Sqloptions(this.observer);// Attaching the Observers.
+
+		this.facade=new RowFilterContext();
 	}
 	
 	
@@ -26,10 +29,8 @@ class Filter{
 		var data=this.filtervaluepicker("column");
 		var state=dataset.restructure(data);
 		Filter.chartData=state;//Reference for ChartData
-		var dropit=state.listColumns();
-		this.optioncolumns(dropit);
 		this.observer.setState(state);// all observers are notified about the update
-		console.log("working");
+		
 		
 	}
 	
@@ -41,8 +42,7 @@ class Filter{
 		var new1=this.facade.rowoptions(Filter.chartData,options);
 		Filter.chartData=new1;//Reference for ChartData
 		this.observer.setState(new1);// all observers are notified about the update
-		var dropit=new1.listColumns();
-		this.optioncolumns(dropit);//used to update the Sql Drop down
+		
 	}
 	
 	
@@ -60,62 +60,7 @@ class Filter{
 		Filter.chartData=new1;//Reference for ChartData
 		this.observer.setState(new1);// all observers are notified about the update
 		var dropit=new1.listColumns();//used to get cloumns of the updated
-		this.optioncolumns(dropit);//used to update the Sql Drop down
-	}
-	
-	
-	
-	//Startegy Stats 
-	stat(){
-		
-		var temp=this.startegy;
-		var options=this.filtervaluepicker("stat");
-		var columns=Filter.chartData.listColumns();
-		var stattable="<table><th>Stats</th>";
-		columns.forEach(function(col){
-			stattable +="<th>"+col+"</th>";
-		})
-		
-		options.forEach(function(value){
-			if(value=="Average"){
-				temp.context(new Average());
-				stattable +=temp.Calculate(Filter.chartData,columns);
-				
-				
-			}
-			else if(value=="Max")
-				{
-				temp.context(new Max());
-				stattable +=temp.Calculate(Filter.chartData,columns);
-				
-				}
-			else if(value=="Min")
-			{
-				temp.context(new Min());
-				stattable +=temp.Calculate(Filter.chartData,columns);
-			}
-			else if(value=="Standard")
-			{
-				temp.context(new Standard());
-				stattable +=temp.Calculate(Filter.chartData,columns);
-			}
-			else if(value=="Mean")
-			{
-				temp.context(new Mean());
-				stattable +=temp.Calculate(Filter.chartData,columns);
-			}
-			else
-				{
-				stattable= " ";
-				}
-		})
-		stattable +="</table>";
-		if(stattable =="</table>")
-			{
-			stattable= " ";
-			}
-			
-		return stattable;
+		document.getElementById("sqlvalue").value=" ";
 	}
 	
 	
@@ -135,9 +80,6 @@ class Filter{
     	});
     	return selected;
     }
-    
-    
-    
     
   //used to pick values from the Row checkboxs.
     filtervaluepicker1(value)
@@ -161,22 +103,13 @@ class Filter{
     
     
     
-    
-  //used to create SQL drop Down
-    optioncolumns(data)
-    {
- 	   var drop=document.getElementById("options")
- 	   while(drop.firstChild) 
-          {
-	         drop.removeChild(drop.firstChild);
-          }
- 	   data.forEach(function(col){
- 		   var z = document.createElement("option");
- 		    z.setAttribute("value", col);
- 		    var t = document.createTextNode(col);
- 		    z.appendChild(t);
- 		    drop.appendChild(z);
- 	   })
- 	   
+    finished(){
+    	
+    	var chart=new ChartCreator(Filter.chartData)
+    	return chart;
     }
+    	    
+    
+    
+    
 }

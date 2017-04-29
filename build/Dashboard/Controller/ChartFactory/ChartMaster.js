@@ -2,12 +2,11 @@
  * 
  */
 class ChartMaster{
-	constructor(ctx,value)
+	constructor(ctx)
 	{
 		this.ctx=ctx;
-		this.name=value;
 	}
-	chart(ctx,data)
+chart(data,Labels)
 	{
 		
 	}

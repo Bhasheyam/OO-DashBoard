@@ -1,28 +1,23 @@
-/**
- * 
- */
-class Bubble{
-	
-	constructor()
+
+class Pivot extends ChartMaster{
+	constructor(ctx)
 	{
-		
+		super(ctx);
 	}
 	chart(data,Labels)
 	{
-		var myChart = new Chart(ctx, {
-		    type: 'bubble',
+		
+		var myChart = new Chart(this.ctx, {
+		    type: 'bar',
 		    data: {
 		        labels: Labels,
-		        datasets: [{
-		            label: "Bar Chart",
-		            data: data,
-		            backgroundColor: Background,
-		            borderColor: BorderColor,
-		            borderWidth: 1
-		        }]
+		        datasets:data
 		    },
 		    options: {
 		        scales: {
+		        	xAxes: [{
+		               
+		            }],
 		            yAxes: [{
 		                ticks: {
 		                    beginAtZero:true
@@ -33,4 +28,7 @@ class Bubble{
 		});
 
 }
+	
+	
+	
 }

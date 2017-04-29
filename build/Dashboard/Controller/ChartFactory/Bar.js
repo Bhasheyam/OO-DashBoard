@@ -1,28 +1,28 @@
 /**
  * 
  */
-class Bar{
-	constructor()
+class Bar extends ChartMaster{
+	constructor(ctx)
 	{
+		super(ctx);
+		
 		
 	}
 	chart(data,Labels)
 	{
-		var myChart = new Chart(ctx, {
+		
+	 var myChart = new Chart(this.ctx, {
 		    type: 'bar',
 		    data: {
 		        labels: Labels,
-		        datasets: [{
-		            label: "Bar Chart",
-		            data: [12, 19, 3, 5, 2, 3],
-		            backgroundColor: Background,
-		            borderColor: BorderColor,
-		            borderWidth: 1
-		        }]
+		        datasets:data
 		    },
 		    options: {
 		        scales: {
-		            yAxes: [{
+		        	xAxes: [{
+		                stacked: true
+		            }],
+		            yAxes: [{stacked: true,
 		                ticks: {
 		                    beginAtZero:true
 		                }
@@ -32,4 +32,6 @@ class Bar{
 		});
 
 }
+	
+	
 }

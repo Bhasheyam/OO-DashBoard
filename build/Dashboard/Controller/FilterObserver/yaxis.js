@@ -1,27 +1,22 @@
-
-class RowFilter extends FilterObserver {
+/**
+ * 
+ */
+class yaxis  extends FilterObserver {
 	constructor(Subject)
 	{
 		super(Subject);
 		
 	}
-	
-	update(){
-		
-			var data=this.subject.getState();
-			var selected=data.listColumns();
-				var rowu=data.unique(selected[0]);
-				var arr=rowu.toArray();
-			this.loadcolumn(arr);
-		}
-        
-		
-	
-	loadcolumn(key)
+	update()
 	{
-		document.getElementById("Rowbutton").style.display="block";
-		document.getElementById("stats").style.display="block";
-		var cloumnfind=document.getElementById("row");
+		var data=this.subject.getState();
+		var selected=data.listColumns();
+		this.createaxis(selected,"y");
+	}
+	createaxis(key,val)
+	{
+		
+		var cloumnfind=document.getElementById(val);
 
           while(cloumnfind.firstChild) 
           {
@@ -33,7 +28,7 @@ class RowFilter extends FilterObserver {
 			    var checkb=document.createElement('input');
 			    checkb.type="checkbox";
 			    checkb.value=key[j];
-			    checkb.name="Row"
+			    checkb.name="y"
 			    checkb.id="RowData";
 			   
 			    

@@ -13,10 +13,7 @@ constructor(){
 		var query="select * from "+table+" WHERE "+options[0]+options[1];
 		console.log(query);
 		var sql=DataFrame.sql.request(query);
-		console.log(sql);
 		return sql;
 		
 	}
-	
-	
 }

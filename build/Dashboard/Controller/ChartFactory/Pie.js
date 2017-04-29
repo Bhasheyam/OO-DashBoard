@@ -1,33 +1,21 @@
-/**
- * 
- */
-class Pie{
-	constructor()
+
+class Pie extends ChartMaster{
+	constructor(ctx)
 	{
-		
+		super(ctx);
+	
 	}
 	chart(data,Labels)
 	{
-		var myChart = new Chart(ctx, {
+		
+	 var myChart = new Chart(this.ctx, {
 		    type: 'pie',
 		    data: {
 		        labels: Labels,
-		        datasets: [{
-		            label: "Bar Chart",
-		            data: data,
-		            backgroundColor: Background,
-		            borderColor: BorderColor,
-		            borderWidth: 1
-		        }]
+		        datasets:data
 		    },
 		    options: {
-		        scales: {
-		            yAxes: [{
-		                ticks: {
-		                    beginAtZero:true
-		                }
-		            }]
-		        }
+		        responsive: false
 		    }
 		});
 

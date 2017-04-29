@@ -17,6 +17,21 @@ class LoadDataSet{
 		var data=new SingletonData();
 		data.setDataset(Dataset);
 		data.setcolumn(column);
+		
+		var element = document.getElementsByTagName("P"), index;
+
+		for (index = element.length - 1; index >= 0; index--) {
+		    element[index].parentNode.removeChild(element[index]);
+		}
+		var element1 = document.getElementsByTagName("CANVAS"), index1;
+
+		for (index1 = element1.length - 1; index1 >= 0; index1--) {
+		    element1[index1].parentNode.removeChild(element1[index1]);
+		}
+		
+			document.getElementById("row").innerHTML="";
+		document.getElementById("x").innerHTML="";
+		document.getElementById("y").innerHTML="";
 	}
 	createtable(myArray,key) {
 	    var result="<table><tr>";

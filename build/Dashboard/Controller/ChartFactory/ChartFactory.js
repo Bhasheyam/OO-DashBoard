@@ -6,25 +6,20 @@ class ChartFactory{
 	create(ctx,value){
 		if(value=="pie"){
 			
-			return new Pie();
+			return new Pie(ctx);
 		}
 		else if(value=="bar"){
-			return new Bar();
+			return new Bar(ctx);
 		}
 		else if(value=="Stacked"){
-			return new Stacked();
-}
-		else if(value=="Doughnut"){
-			return new Doughnut();
-}
-		else if(value=="Bubble"){
-			return new Bubble();
+			return new Stacked(ctx);
 }
 		else if(value=="Line"){
-			return new Line();
+			return new Line(ctx);
 }
-		else if(value=="Radar"){
-			return new Radar();
+		else if(value=="Pivot"){
+			return new Pivot(ctx);
 }
+		
 	}
 }
