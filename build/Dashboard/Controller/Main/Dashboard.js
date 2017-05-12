@@ -1,13 +1,11 @@
 
 
-var filter;//Filter handler 
+var filter;//Filter handler
 var chart;//Chart Handler
 
 function Load(){     //on-Load Function
 	filter=new Filter();
-	
 }
-
 
 
 function ColumnHandler(){// Cloumn filter
@@ -17,7 +15,7 @@ function ColumnHandler(){// Cloumn filter
 
 
 function RowHandler(){//Row Elimination
-	
+
 	filter.Rowoptions();
 }
 
@@ -33,7 +31,5 @@ function chartHandler(value) //chart Generator
 {
 	var chart=filter.finished();
 	chart.create(value);
-	
+
 }
-
-

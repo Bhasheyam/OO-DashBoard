@@ -190,7 +190,7 @@ class ChartCreator{
 				if(options.length!=0)
 				{
 				console.log(stattable);
-				var tab= document.createElement("div");
+				var tab= document.createElement("P");
 				tab.name="tables";
 				tab.id="work";
 				tab.innerHTML=stattable;
